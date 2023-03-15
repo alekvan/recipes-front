@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Colors: */
+  --lightgrey: #d8d8d8;
+  --white: #ffffff;
+  --softwhite: #f8f7f2;
+  --orange: #f0972a;
+  --midgrey: #a5a5a5;
+  --darkgrey: #626262;
+  --green: #96bb36;
+
+  /* Font/text values */
+  --unnamed-font-family-roboto: Roboto;
+  --unnamed-font-family-roboto-slab: Roboto Slab;
+  --unnamed-font-style-normal: normal;
+  --unnamed-font-weight-bold: bold;
+  --unnamed-font-weight-normal: normal;
+  --unnamed-font-size-14: 14px;
+  --unnamed-font-size-18: 18px;
+  --unnamed-font-size-20: 20px;
+  --unnamed-font-size-36: 36px;
+  --unnamed-character-spacing-0: 0px;
+  --unnamed-line-spacing-19: 19px;
+  --unnamed-line-spacing-24: 24px;
+  --unnamed-line-spacing-26: 26px;
+  --unnamed-line-spacing-48: 48px;
+  --unnamed-text-transform-uppercase: uppercase;
+}
+
+/* Character Styles */
+.unnamed-character-style-1 {
+  font-family: var(--unnamed-font-family-roboto);
+  font-style: var(--unnamed-font-style-normal);
+  font-weight: var(--unnamed-font-weight-bold);
+  font-size: var(--unnamed-font-size-18);
+  line-height: var(--unnamed-line-spacing-24);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--midgrey);
+  text-transform: var(--unnamed-text-transform-uppercase);
+}
+.unnamed-character-style-2 {
+  font-family: var(--unnamed-font-family-roboto-slab);
+  font-style: var(--unnamed-font-style-normal);
+  font-weight: var(--unnamed-font-weight-normal);
+  font-size: var(--unnamed-font-size-20);
+  line-height: var(--unnamed-line-spacing-26);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--midgrey);
+}
+.unnamed-character-style-3 {
+  font-family: var(--unnamed-font-family-roboto);
+  font-style: var(--unnamed-font-style-normal);
+  font-weight: var(--unnamed-font-weight-normal);
+  font-size: var(--unnamed-font-size-14);
+  line-height: var(--unnamed-line-spacing-19);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--midgrey);
+}
+.unnamed-character-style-4 {
+  font-family: var(--unnamed-font-family-roboto-slab);
+  font-style: var(--unnamed-font-style-normal);
+  font-weight: var(--unnamed-font-weight-bold);
+  font-size: var(--unnamed-font-size-20);
+  line-height: var(--unnamed-line-spacing-26);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--orange);
+}
+.unnamed-character-style-5 {
+  font-family: var(--unnamed-font-family-roboto-slab);
+  font-style: var(--unnamed-font-style-normal);
+  font-weight: var(--unnamed-font-weight-bold);
+  font-size: var(--unnamed-font-size-36);
+  line-height: var(--unnamed-line-spacing-48);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--green);
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-baby {
+  position: relative;
+  font-size: 3.7rem;
+  font-family: 'Roboto Slab';
+  color: var(--darkgrey);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.nav-logo-food {
+  position: absolute;
+  color: var(--orange);
+  font-size: 0.9rem;
+  font-family: 'Roboto Slab';
+  font-weight: 600;
+  top: 5.8rem;
+  left: 19.5rem;
+}
+
+.nav-links a {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
+    var(--unnamed-font-size-18) / var(--unnamed-line-spacing-24)
+    var(--unnamed-font-family-roboto);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--midgrey);
+  text-align: left;
+  font: normal normal bold 18px/24px Roboto;
+  letter-spacing: 0px;
+  color: #a5a5a5;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.nav-links span {
+  margin-left: 0.5rem;
+}
+
+.nav-login-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logged-in-navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logged-in-navigation a {
+  font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold)
+    var(--unnamed-font-size-18) / var(--unnamed-line-spacing-24)
+    var(--unnamed-font-family-roboto);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--midgrey);
+  text-align: left;
+  font: normal normal bold 18px/24px Roboto;
+  letter-spacing: 0px;
+  color: #a5a5a5;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.login-button {
+  font: var(--unnamed-font-style-normal) normal 900 16px/21px
+    var(--unnamed-font-family-roboto);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  border-radius: 6px;
+  color: #a5a5a5;
+  font-size: 16px;
+  background: var(--softwhite);
+  padding: 10px 20px 10px 20px;
+  border: solid var(--midgrey) 1px;
+  text-decoration: none;
+}
+
+.login-button:hover {
+  cursor: pointer;
+}
+
+.register-button {
+  letter-spacing: var(--unnamed-character-spacing-0);
+  border-radius: 6px;
+  border: 0;
+  font: normal normal 900 16px/21px Roboto;
+  color: var(--white);
+  font-size: 16px;
+  background: var(--green) 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.register-button:hover {
+  cursor: pointer;
+}
+
+.fresh-new.unnamed-character-style-5 {
+  line-height: 50px;
+}
+
+.nav-link-icons {
+  margin-left: 1.3rem;
+  margin-right: 1.3rem;
+  font-size: 0.5rem;
+}
+
+.logged-in-nav-icons {
+  margin-left: 0.8rem;
+  margin-right: 0.8rem;
+  font-size: 0.5rem;
+}
+
+@media only screen and (max-width: 1600px) {
+  .nav-logo-food {
+    left: 7.5rem;
+  }
+}

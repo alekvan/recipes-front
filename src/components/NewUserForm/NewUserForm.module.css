@@ -1,0 +1,80 @@
+@import url('../../App.css');
+
+.registerWrapper {
+  display: flex;
+  margin-top: 2rem;
+  height: 28.6rem;
+}
+
+.registerTextbox {
+  width: 35%;
+  padding-right: 4rem;
+}
+
+.textboxHeader {
+  font-size: 46px;
+  color: var(--orange);
+  font-family: Roboto Slab;
+}
+
+.textboxParagraph {
+  font-family: Roboto Slab;
+  font-size: 20px;
+  color: #a5a5a5;
+}
+
+.registerForm {
+  width: 65%;
+  margin-left: 4rem;
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.defaultInputWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  margin-bottom: 1rem;
+}
+
+.defaultLabel {
+  font-family: Roboto Slab;
+  font-weight: bolder;
+  margin-bottom: 0.7rem;
+  color: #f0972a;
+}
+
+.defaultInput {
+  padding: 5px;
+  height: 1.7rem;
+  border-radius: 5px;
+  font-family: Roboto Slab;
+  font-weight: bold;
+  border: 1px solid #a5a5a5;
+  background: #f0efea;
+  width: 85%;
+  color: #626262;
+}
+
+.invalidInput {
+  color: red;
+  font-family: Roboto Slab;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.formSubmitBtn {
+  font: normal normal 700 16px/45px Roboto;
+  width: 28%;
+  height: 2.7rem;
+  margin-top: 2rem;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 0;
+  text-align: center;
+  border-radius: 6px;
+  background: #96bb36 0% 0% no-repeat padding-box;
+  font-size: 16px;
+  color: #ffffff;
+}

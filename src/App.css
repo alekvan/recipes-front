@@ -1,0 +1,44 @@
+:root {
+  /* Colors: */
+  --lightgrey: #d8d8d8;
+  --white: #ffffff;
+  --softwhite: #f8f7f2;
+  --orange: #f0972a;
+  --midgrey: #a5a5a5;
+  --darkgrey: #626262;
+  --green: #96bb36;
+
+  /* Font/text values */
+  --unnamed-font-family-roboto: Roboto;
+  --unnamed-font-family-roboto-slab: Roboto Slab;
+  --unnamed-font-style-normal: normal;
+  --unnamed-font-weight-bold: bold;
+  --unnamed-font-weight-normal: normal;
+  --unnamed-font-size-14: 14px;
+  --unnamed-font-size-18: 18px;
+  --unnamed-font-size-20: 20px;
+  --unnamed-font-size-36: 36px;
+  --unnamed-character-spacing-0: 0px;
+  --unnamed-line-spacing-19: 19px;
+  --unnamed-line-spacing-24: 24px;
+  --unnamed-line-spacing-26: 26px;
+  --unnamed-line-spacing-48: 48px;
+  --unnamed-text-transform-uppercase: uppercase;
+}
+
+.container {
+  margin: 2rem 17rem 0rem 17rem;
+  background-color: var(--softwhite);
+  min-height: 87vh;
+}
+
+#link-home:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1600px) {
+  .container {
+    margin: 2rem 5rem 0 5rem;
+    min-height: 100vh;
+  }
+}
