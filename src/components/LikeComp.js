@@ -37,7 +37,7 @@ const LikeComp = ({ recipeId, className }) => {
         setIsLiked(res.data.like);
         setNumOfLikes(res.data.likeArr.length);
       })
-      .catch((err) => alert.error(err.response.statusText));
+      .catch((err) => alert.error('You must be logged in!'));
   };
   return (
     <div className={className}>
