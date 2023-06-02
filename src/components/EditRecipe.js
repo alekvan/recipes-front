@@ -51,17 +51,6 @@ const EditRecipe = ({ requestMethod }) => {
       [e.target.name]: value,
     }));
   }
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    console.log(imagePreview);
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-      };
-    }
-  };
 
   const {
     register,
@@ -102,17 +91,27 @@ const EditRecipe = ({ requestMethod }) => {
   const onError = (err) => {
     console.log(err);
   };
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+    }
+  };
   return (
     <form
-      className="form-style"
+      className='form-style'
       onSubmit={handleSubmit(handleSubmitData, onError)}
     >
-      <div className="form-wrapper" style={{ display: 'flex', width: '100%' }}>
+      <div className='form-wrapper' style={{ display: 'flex', width: '100%' }}>
         <div
-          className="new-recipe-left"
+          className='new-recipe-left'
           style={{ display: 'flex', flexDirection: 'column', width: '20%' }}
         >
-          <div className="image-title">Recipe Image</div>
+          <div className='image-title'>Recipe Image</div>
 
           {/* <div className="image-wrapper">
             <img
@@ -124,33 +123,47 @@ const EditRecipe = ({ requestMethod }) => {
               alt="recipe_img"
             />
           </div> */}
-          <div className="image-wrapper">
+          {/* <div className="image-wrapper">
             {imagePreview ? (
               <img src={imagePreview} alt="Preview" />
             ) : (
               <img src={inputValues.editRecipeImg} alt="Preview" />
             )}
-          </div>
+          </div> */}
+          {imagePreview && (
+            <div className='image-wrapper'>
+              <img src={imagePreview} alt='Preview' />
+            </div>
+          )}
 
-          <input
-            type="file"
-            id="editRecipeImg"
+          {/* <input
+            type='file'
+            id='editRecipeImg'
             style={{ display: 'none' }}
             multiple
             {...register('editRecipeImg')}
             onChange={handleImageChange}
           />
-          <label htmlFor="editRecipeImg" className="upload-image-label">
+          <label htmlFor='editRecipeImg' className='upload-image-label'>
+            UPLOAD IMAGE
+          </label> */}
+          <input
+            type='file'
+            id='editRecipeImg'
+            {...register('image')}
+            onChange={handleImageChange}
+          />
+          <label htmlFor='editRecipeImg' className='upload-image-label'>
             UPLOAD IMAGE
           </label>
         </div>
-        <div className="new-recipe-middle">
+        <div className='new-recipe-middle'>
           <InputComp
-            type="text"
-            inputGroupName="title-input"
-            label="Recipe Title"
-            placeholder="Homemade Pizza"
-            name="editRecipeTitle"
+            type='text'
+            inputGroupName='title-input'
+            label='Recipe Title'
+            placeholder='Homemade Pizza'
+            name='editRecipeTitle'
             value={inputValues.editRecipeTitle}
             register={{
               ...register('editRecipeTitle', {
@@ -171,32 +184,32 @@ const EditRecipe = ({ requestMethod }) => {
             </span>
           )}
           <div
-            className="middle-container"
+            className='middle-container'
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
-            <div className="meal-category">
-              <label htmlFor="editCategory">Category</label>
+            <div className='meal-category'>
+              <label htmlFor='editCategory'>Category</label>
               <select
-                id="editCategory"
+                id='editCategory'
                 value={inputValues.editCategory}
                 {...register('editCategory', {
                   onChange: (e) => handleInputChange(e),
                 })}
               >
                 <option style={{ display: 'none' }}>Select category</option>
-                <option value="breakfast">Breakfast</option>
-                <option value="brunch">Brunch</option>
-                <option value="lunch">Lunch</option>
-                <option value="dinner">Dinner</option>
+                <option value='breakfast'>Breakfast</option>
+                <option value='brunch'>Brunch</option>
+                <option value='lunch'>Lunch</option>
+                <option value='dinner'>Dinner</option>
               </select>
             </div>
 
             <InputComp
-              type="number"
-              inputGroupName="prep-time"
-              label="Preperation Time"
-              placeholder="45"
-              name="editPrepTime"
+              type='number'
+              inputGroupName='prep-time'
+              label='Preperation Time'
+              placeholder='45'
+              name='editPrepTime'
               value={inputValues.editPrepTime}
               register={{
                 ...register('editPrepTime', {
@@ -205,11 +218,11 @@ const EditRecipe = ({ requestMethod }) => {
               }}
             />
             <InputComp
-              type="number"
-              inputGroupName="people"
-              label="No. People"
-              placeholder="4"
-              name="editNumberOfPeople"
+              type='number'
+              inputGroupName='people'
+              label='No. People'
+              placeholder='4'
+              name='editNumberOfPeople'
               value={inputValues.editNumberOfPeople}
               register={{
                 ...register('editNumberOfPeople', {
@@ -218,31 +231,31 @@ const EditRecipe = ({ requestMethod }) => {
               }}
             />
           </div>
-          <div className="short-description">
-            <label htmlFor="shortDesc">Short Description</label>
+          <div className='short-description'>
+            <label htmlFor='shortDesc'>Short Description</label>
             <textarea
-              id="shortDesc"
+              id='shortDesc'
               value={inputValues.editShortDesc}
-              placeholder="TLDR of a recipe"
+              placeholder='TLDR of a recipe'
               {...register('editShortDesc', {
                 onChange: (e) => handleInputChange(e),
               })}
             ></textarea>
           </div>
         </div>
-        <div className="new-recipe-right">
-          <label htmlFor="recipeDesc">Recipe</label>
+        <div className='new-recipe-right'>
+          <label htmlFor='recipeDesc'>Recipe</label>
           <textarea
-            id="recipeDesc"
+            id='recipeDesc'
             value={inputValues.editRecipeDesc}
-            placeholder="TLDR of a recipe"
+            placeholder='TLDR of a recipe'
             {...register('editRecipeDesc', {
               onChange: (e) => handleInputChange(e),
             })}
           ></textarea>
         </div>
       </div>
-      <button className="recipe-submit-btn" type="submit">
+      <button className='recipe-submit-btn' type='submit'>
         Update
       </button>
     </form>
