@@ -29,6 +29,7 @@ const EditRecipe = ({ requestMethod }) => {
           editShortDesc: res.data.recipe.shortDesc,
           editRecipeImg: res.data.recipe.recipeImg,
         });
+        setImagePreview(res.data.recipe.recipeImg);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -92,10 +93,16 @@ const EditRecipe = ({ requestMethod }) => {
   };
   const handleImageChange = (event) => {
     const file = event.target.files[0];
+    if (!file) {
+      return setImagePreview(null);
+    }
     if (file) {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onloadend = () => {
+        if (!reader.result) {
+          setImagePreview(null);
+        }
         setImagePreview(reader.result);
       };
     }
@@ -129,9 +136,9 @@ const EditRecipe = ({ requestMethod }) => {
               <img src={inputValues.editRecipeImg} alt="Preview" />
             )}
           </div> */}
-          {inputValues.editRecipeImg && (
+          {imagePreview && (
             <div className='image-wrapper'>
-              <img src={inputValues.editRecipeImg} alt='Preview' />
+              <img src={imagePreview} alt='Preview' />
             </div>
           )}
 
@@ -149,7 +156,8 @@ const EditRecipe = ({ requestMethod }) => {
           <input
             type='file'
             id='editRecipeImg'
-            {...register('image')}
+            style={{ display: 'none' }}
+            {...register('editRecipeImg')}
             onChange={handleImageChange}
           />
           <label htmlFor='editRecipeImg' className='upload-image-label'>

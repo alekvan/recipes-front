@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useForm, Controller, get } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
 import axios from 'axios';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -56,13 +56,13 @@ const NewUserForm = () => {
         onSubmit={handleSubmit(handleSubmitData)}
       >
         <div className={styles.defaultInputWrapper}>
-          <label htmlFor="firstName" className={styles.defaultLabel}>
+          <label htmlFor='firstName' className={styles.defaultLabel}>
             First Name
           </label>
           <input
-            id="firstName"
+            id='firstName'
             className={styles.defaultInput}
-            placeholder="John"
+            placeholder='John'
             {...register('firstName', {
               required: true,
             })}
@@ -72,15 +72,15 @@ const NewUserForm = () => {
           )}
         </div>
         <div className={styles.defaultInputWrapper}>
-          <label htmlFor="lastName" className={styles.defaultLabel}>
+          <label htmlFor='lastName' className={styles.defaultLabel}>
             Last Name
           </label>
           <input
-            id="lastName"
+            id='lastName'
             {...register('lastName', {
               required: true,
             })}
-            placeholder="Smith"
+            placeholder='Smith'
             className={styles.defaultInput}
           />
           {errors.lastName && (
@@ -89,16 +89,16 @@ const NewUserForm = () => {
         </div>
 
         <div className={styles.defaultInputWrapper}>
-          <label htmlFor="email" className={styles.defaultLabel}>
+          <label htmlFor='email' className={styles.defaultLabel}>
             Email
           </label>
           <input
-            id="email"
+            id='email'
             {...register('email', {
               required: true,
               pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
             })}
-            placeholder="john@smith.com"
+            placeholder='john@smith.com'
             className={styles.defaultInput}
           />
           {errors.email && (
@@ -109,21 +109,21 @@ const NewUserForm = () => {
           )}
         </div>
         <div className={styles.defaultInputWrapper}>
-          <label htmlFor="birthday" className={styles.defaultLabel}>
+          <label htmlFor='birthday' className={styles.defaultLabel}>
             Birthday
           </label>
           <Controller
             control={control}
-            name="birthday"
+            name='birthday'
             rules={{ required: true }}
             render={({ field }) => (
               <DatePicker
-                id="birthday"
+                id='birthday'
                 className={styles.defaultInput}
-                placeholderText="22-11-2000"
+                placeholderText='22-11-2000'
                 onChange={(date) => field.onChange(date)}
                 selected={field.value}
-                dateFormat="dd-MM-yyyy"
+                dateFormat='dd-MM-yyyy'
                 error={!!errors.birthday}
               />
             )}
@@ -133,14 +133,14 @@ const NewUserForm = () => {
           )}
         </div>
         <div className={styles.defaultInputWrapper}>
-          <label htmlFor="password" className={styles.defaultLabel}>
+          <label htmlFor='password' className={styles.defaultLabel}>
             Password
           </label>
           <input
-            type="password"
-            id="password"
+            type='password'
+            id='password'
             className={styles.defaultInput}
-            placeholder="******"
+            placeholder='******'
             {...register('password', {
               required: true,
               minLength: {
@@ -159,14 +159,14 @@ const NewUserForm = () => {
           )}
         </div>
         <div className={styles.defaultInputWrapper}>
-          <label htmlFor="confirmPassword" className={styles.defaultLabel}>
+          <label htmlFor='confirmPassword' className={styles.defaultLabel}>
             Repeat Password
           </label>
           <input
-            type="password"
-            id="confirmPassword"
+            type='password'
+            id='confirmPassword'
             className={styles.defaultInput}
-            placeholder="******"
+            placeholder='******'
             {...register('confirmPassword', {
               required: true,
               validate: {
@@ -179,7 +179,7 @@ const NewUserForm = () => {
             <span className={styles.invalidInput}>Passwords don't match</span>
           )}
         </div>
-        <button type="submit" className={styles.formSubmitBtn}>
+        <button type='submit' className={styles.formSubmitBtn}>
           CREATE ACCOUNT
         </button>
       </form>
