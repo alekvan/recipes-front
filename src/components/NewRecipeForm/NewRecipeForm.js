@@ -17,7 +17,6 @@ const NewRecipeForm = ({ requestMethod, currentData }) => {
   let img = watch('recipeImg');
 
   const handleSubmitData = (fData, e) => {
-    console.log(fData['recipeImg'][0]);
     const data = new FormData();
 
     for (const key in fData) {
@@ -50,45 +49,45 @@ const NewRecipeForm = ({ requestMethod, currentData }) => {
 
   return (
     <form
-      className='form-style'
+      className="form-style"
       onSubmit={handleSubmit(handleSubmitData, onError)}
     >
-      <div className='form-wrapper' style={{ display: 'flex', width: '100%' }}>
+      <div className="form-wrapper" style={{ display: 'flex', width: '100%' }}>
         <div
-          className='new-recipe-left'
+          className="new-recipe-left"
           style={{ display: 'flex', flexDirection: 'column', width: '20%' }}
         >
-          <div className='image-title'>Recipe Image</div>
+          <div className="image-title">Recipe Image</div>
 
-          <div className='image-wrapper'>
+          <div className="image-wrapper">
             <img
               src={
                 img === undefined || img === [] || img.length === 0
                   ? 'https://images.assetsdelivery.com/compings_v2/yehorlisnyi/yehorlisnyi2104/yehorlisnyi210400016.jpg'
                   : URL.createObjectURL(img[0])
               }
-              alt='recipe_img'
+              alt="recipe_img"
             />
           </div>
 
           <input
-            type='file'
-            id='recipeImg'
+            type="file"
+            id="recipeImg"
             style={{ display: 'none' }}
             multiple
             {...register('recipeImg', { required: true })}
           />
-          <label htmlFor='recipeImg' className='upload-image-label'>
+          <label htmlFor="recipeImg" className="upload-image-label">
             UPLOAD IMAGE
           </label>
         </div>
-        <div className='new-recipe-middle'>
+        <div className="new-recipe-middle">
           <InputComp
-            type='text'
-            inputGroupName='title-input'
-            label='Recipe Title'
-            placeholder='Homemade Pizza'
-            name='recipeTitle'
+            type="text"
+            inputGroupName="title-input"
+            label="Recipe Title"
+            placeholder="Homemade Pizza"
+            name="recipeTitle"
             register={{
               ...register('recipeTitle', { required: true }),
             }}
@@ -106,30 +105,30 @@ const NewRecipeForm = ({ requestMethod, currentData }) => {
             </span>
           )}
           <div
-            className='middle-container'
+            className="middle-container"
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
-            <div className='meal-category'>
-              <label htmlFor='category'>Category</label>
+            <div className="meal-category">
+              <label htmlFor="category">Category</label>
               <select
-                id='category'
+                id="category"
                 {...register('category', { required: true })}
               >
                 <option style={{ display: 'none' }}>Select category</option>
-                <option value='breakfast'>Breakfast</option>
-                <option value='brunch'>Brunch</option>
-                <option value='lunch'>Lunch</option>
-                <option value='dinner'>Dinner</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="brunch">Brunch</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
               </select>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <InputComp
-                type='number'
-                inputGroupName='prep-time'
-                label='Preperation Time'
-                placeholder='45'
-                name='prepTime'
+                type="number"
+                inputGroupName="prep-time"
+                label="Preperation Time"
+                placeholder="45"
+                name="prepTime"
                 register={{
                   ...register('prepTime', { required: true }),
                 }}
@@ -146,15 +145,14 @@ const NewRecipeForm = ({ requestMethod, currentData }) => {
                   This field is required
                 </span>
               )}
-              {console.log(errors.prepTime)}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <InputComp
-                type='number'
-                inputGroupName='people'
-                label='No. People'
-                placeholder='4'
-                name='numberOfPeople'
+                type="number"
+                inputGroupName="people"
+                label="No. People"
+                placeholder="4"
+                name="numberOfPeople"
                 register={{
                   ...register('numberOfPeople', { required: true }),
                 }}
@@ -174,11 +172,11 @@ const NewRecipeForm = ({ requestMethod, currentData }) => {
                 )}
             </div>
           </div>
-          <div className='short-description'>
-            <label htmlFor='shortDesc'>Short Description</label>
+          <div className="short-description">
+            <label htmlFor="shortDesc">Short Description</label>
             <textarea
-              id='shortDesc'
-              placeholder='TLDR of a recipe'
+              id="shortDesc"
+              placeholder="TLDR of a recipe"
               {...register('shortDesc', { required: true, maxLength: 320 })}
             ></textarea>
             {errors.shortDesc && errors.shortDesc.type === 'maxLength' && (
@@ -195,16 +193,16 @@ const NewRecipeForm = ({ requestMethod, currentData }) => {
             )}
           </div>
         </div>
-        <div className='new-recipe-right'>
-          <label htmlFor='recipeDesc'>Recipe</label>
+        <div className="new-recipe-right">
+          <label htmlFor="recipeDesc">Recipe</label>
           <textarea
-            id='recipeDesc'
-            placeholder='TLDR of a recipe'
+            id="recipeDesc"
+            placeholder="TLDR of a recipe"
             {...register('recipeDesc', { required: true })}
           ></textarea>
         </div>
       </div>
-      <button className='recipe-submit-btn' type='submit'>
+      <button className="recipe-submit-btn" type="submit">
         Create
       </button>
     </form>

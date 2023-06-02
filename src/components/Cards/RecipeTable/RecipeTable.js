@@ -17,7 +17,6 @@ const RecipeTable = ({ tableData, setTableData }) => {
       })
       .then(() => {
         let list = tableData.filter((recipe) => recipe._id !== recipeId);
-        console.log(list);
         setTableData(list);
       })
       .catch((err) => console.log(err));

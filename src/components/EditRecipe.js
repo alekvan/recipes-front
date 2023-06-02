@@ -14,6 +14,7 @@ const EditRecipe = ({ requestMethod }) => {
   const navigate = useNavigate();
   const userState = useSelector(selectUser);
   const [inputValues, setInputValues] = useState({});
+  const [imagePreview, setImagePreview] = useState(null);
 
   useEffect(() => {
     axios
@@ -50,6 +51,17 @@ const EditRecipe = ({ requestMethod }) => {
       [e.target.name]: value,
     }));
   }
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    console.log(imagePreview);
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+    }
+  };
 
   const {
     register,
@@ -58,15 +70,14 @@ const EditRecipe = ({ requestMethod }) => {
     reset,
     formState: { errors },
   } = useForm();
-  let img = watch('editRecipeImg');
 
+  let img = watch('editRecipeImg');
   console.log(img);
 
   const handleSubmitData = (fData, e) => {
     e.preventDefault();
-    console.log(fData);
     const data = new FormData();
-    console.log(fData['editRecipeImg']);
+
     data.append('recipeTitle', fData['editRecipeTitle']);
     data.append('recipeImg', fData['editRecipeImg'][0]);
     data.append('recipeDesc', fData['editRecipeDesc']);
@@ -103,7 +114,7 @@ const EditRecipe = ({ requestMethod }) => {
         >
           <div className="image-title">Recipe Image</div>
 
-          <div className="image-wrapper">
+          {/* <div className="image-wrapper">
             <img
               src={
                 img === undefined || img === [] || img.length === 0
@@ -112,6 +123,13 @@ const EditRecipe = ({ requestMethod }) => {
               }
               alt="recipe_img"
             />
+          </div> */}
+          <div className="image-wrapper">
+            {imagePreview ? (
+              <img src={imagePreview} alt="Preview" />
+            ) : (
+              <img src={inputValues.editRecipeImg} alt="Preview" />
+            )}
           </div>
 
           <input
@@ -120,6 +138,7 @@ const EditRecipe = ({ requestMethod }) => {
             style={{ display: 'none' }}
             multiple
             {...register('editRecipeImg')}
+            onChange={handleImageChange}
           />
           <label htmlFor="editRecipeImg" className="upload-image-label">
             UPLOAD IMAGE
