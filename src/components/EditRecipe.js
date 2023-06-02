@@ -61,7 +61,6 @@ const EditRecipe = ({ requestMethod }) => {
   } = useForm();
 
   let img = watch('editRecipeImg');
-  console.log(img);
 
   const handleSubmitData = (fData, e) => {
     e.preventDefault();
@@ -130,9 +129,9 @@ const EditRecipe = ({ requestMethod }) => {
               <img src={inputValues.editRecipeImg} alt="Preview" />
             )}
           </div> */}
-          {imagePreview && (
+          {inputValues.editRecipeImg && (
             <div className='image-wrapper'>
-              <img src={imagePreview} alt='Preview' />
+              <img src={inputValues.editRecipeImg} alt='Preview' />
             </div>
           )}
 
